@@ -35,4 +35,8 @@ Images/               # Reference photos and renders
 ## Notes
 - PCB source files are Altium (.PcbDoc, .SchDoc, .PrjPcb) — not KiCad
 - Board outline matches older FFC CBA revisions (drop-in compatible)
-- Two assembly variants differ only in which 0R resistor is populated (R4 vs R5) to set sensor core voltage
+- Two assembly variants differ only in which 0R resistor is populated to set sensor core voltage:
+  - **FAB_1V0:** R4 populated, R5 not populated → 1.0V core (IMX sensors)
+  - **FAB_1V2:** R5 populated, R4 not populated → 1.2V core (OV9x82 sensors)
+  - Same PCB, same layout — the 0R resistor selects the regulator feedback path
+  - Variants are NOT interchangeable: each sensor family requires its specific core voltage
